@@ -33,7 +33,7 @@ financial_data = data[~outliers_iqr.any(axis=1)]
 st.write("Columns in data:", financial_data.columns.tolist())
 # Remove irrelevant columns
 financial_data.columns = financial_data.columns.str.strip().str.lower()
-financial_data.drop(columns = ['year', 'uniqueid'], inplace = True, error = 'ignore')
+financial_data.drop(columns = ['year', 'uniqueid'], inplace = True, errors = 'ignore')
 # Select categorical columns to encode
 cat_cols = ['country', 'location_type', 'cellphone_access',
             'gender_of_respondent', 'relationship_with_head', 'marital_status',
