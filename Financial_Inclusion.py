@@ -14,7 +14,7 @@ st.write('This model use RandomForestClassifier to make prediction and because t
 st.sidebar.header("Input features for prediction")
 
 # Load the dataset
-uploaded_file = 'https://drive.google.com/file/d/uc?id=11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6'
+uploaded_file = 'https://drive.google.com/uc?id=11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6'
 data = pd.read_csv(uploaded_file, on_bad_lines = 'skip')
 # Check for outliers
 # Z-score method (for normally distributed data)
