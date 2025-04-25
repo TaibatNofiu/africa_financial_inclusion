@@ -14,7 +14,7 @@ st.write('This model use RandomForestClassifier to make prediction and because t
 st.sidebar.header("Input features for prediction")
 
 # Load the dataset
-#uploaded_file = st.file_uploader('Desktop/GMC/ML/Financial_inclusion_dataset.csv', type = 'csv')
+uploaded_file = st.file_uploader('https://drive.google.com/file/d/11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6', type = 'csv')
 data = pd.read_csv(r'Desktop/GMC/Skillsets/financial_inclusion/Financial_inclusion_dataset.csv')
 # Chedk for outliers
 # Z-score method (for normally distributed data)
