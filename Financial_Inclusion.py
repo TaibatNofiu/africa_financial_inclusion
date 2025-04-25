@@ -14,9 +14,9 @@ st.write('This model use RandomForestClassifier to make prediction and because t
 st.sidebar.header("Input features for prediction")
 
 # Load the dataset
-uploaded_file = 'https://drive.google.com/file/d/11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6'
-data = pd.read_csv(uploaded_file, on_bad_lines = 'skip')
-# Chedk for outliers
+#uploaded_file = 'https://drive.google.com/file/d/11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6'
+data = pd.read_csv('data/Financial_inclusion_dataset.csv')
+# Check for outliers
 # Z-score method (for normally distributed data)
 from scipy import stats
 numerical_columns = data.select_dtypes(include = ['int', 'float']).columns
@@ -29,8 +29,11 @@ IQR = Q3 - Q1
 outliers_iqr = ((data[numerical_columns] < (Q1 - 1.5*IQR)) | ((data[numerical_columns] > (Q3 + 1.5*IQR))))
 # Remove outliers
 financial_data = data[~outliers_iqr.any(axis=1)]
+# Print all columns
+st.write("Columns in data:", financial_data.columns.tolist())
 # Remove irrelevant columns
-financial_data.drop(columns = ['year', 'uniqueid'], inplace = True)
+financial_data.columns = financial_data.columns.str.strip().str.lower()
+financial_data.drop(columns = ['year', 'uniqueid'], inplace = True, error = 'ignore')
 # Select categorical columns to encode
 cat_cols = ['country', 'location_type', 'cellphone_access',
             'gender_of_respondent', 'relationship_with_head', 'marital_status',
