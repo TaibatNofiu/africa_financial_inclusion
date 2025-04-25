@@ -15,7 +15,7 @@ st.sidebar.header("Input features for prediction")
 
 # Load the dataset
 uploaded_file = 'https://drive.google.com/file/d/11xMJmzbOj6Nt48OU1dvhvsdT1C4rTDH6'
-data = pd.read_csv(uploaded_file, delimiter = ';')
+data = pd.read_csv(uploaded_file, on_bad_lines = 'skip')
 # Chedk for outliers
 # Z-score method (for normally distributed data)
 from scipy import stats
