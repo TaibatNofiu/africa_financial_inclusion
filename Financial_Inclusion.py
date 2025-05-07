@@ -30,7 +30,7 @@ outliers_iqr = ((data[numerical_columns] < (Q1 - 1.5*IQR)) | ((data[numerical_co
 # Remove outliers
 financial_data = data[~outliers_iqr.any(axis=1)]
 # Print all columns
-st.write("Columns in data:", financial_data.columns.tolist())
+# st.write("Columns in data:", financial_data.columns.tolist())
 # Remove irrelevant columns
 financial_data.columns = financial_data.columns.str.strip().str.lower()
 financial_data.drop(columns = ['year', 'uniqueid'], inplace = True, errors = 'ignore')
